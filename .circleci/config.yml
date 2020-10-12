@@ -29,8 +29,8 @@ jobs:
       - run:
           name: terraform
           command: |
-           # cd projects
-           # cd B
+            cd projects
+            cd B
             terraform apply -auto-approve
       - persist_to_workspace:
           root: .
@@ -46,8 +46,8 @@ jobs:
       - run:
           name: terraform create destroy plan
           command: |
-            #cd projects
-            #cd B
+            cd projects
+            cd B
             terraform plan -destroy
       - persist_to_workspace:
           root: .
@@ -63,7 +63,8 @@ jobs:
       - run:
           name: terraform destroy
           command: |
-            #cd ECS
+            cd projects
+            cd B
             terraform destroy -auto-approve
 workflows:
   version: 2
