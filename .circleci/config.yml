@@ -70,21 +70,45 @@ workflows:
   version: 2
   plan_approve_apply:
     jobs:
-      - plan-apply
+      - plan-apply:
+          filters:
+            branches:
+              only:
+                - develop
       - hold-apply:
           type: approval
           requires:
             - plan-apply
+          filters:
+            branches:
+              only:
+                - develop
       - apply:
           requires:
             - hold-apply
+          filters:
+            branches:
+              only:
+                - develop
       - plan-destroy:
           requires:
             - apply
+          filters:
+            branches:
+              only:
+                - develop
       - hold-destroy:
           type: approval
           requires:
             - plan-destroy
+          filters:
+            branches:
+              only:
+                - develop
       - destroy:
           requires:
             - hold-destroy
+          filters:
+            branches:
+              only:
+                - develop
