@@ -1,3 +1,5 @@
+
+
 ########################################
 # CReating a LoadBalancer for conop
 ########################################
@@ -256,7 +258,7 @@ resource "aws_launch_configuration" "conop-ecs-launchconfig" {
 
   tag {
         key   = "Name"
-        value = var.autoscale_tag_name
+        value = "ECS Instance - EC2ContainerService-${var.ecs_cluster_name}"
         propagate_at_launch = true
     }
 
@@ -304,6 +306,7 @@ resource "aws_ecs_service" "connop" {
     container_port   = var.container_port                 # Port Number of Container
   }
 }
+
 
 
 /*resource "aws_iam_role" "ecs-host-role" {

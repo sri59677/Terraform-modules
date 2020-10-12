@@ -129,3 +129,27 @@ variable "region" {
   type        = string
   description = "Region of the VPC"
 }
+
+variable "aws_iam_role_name" {
+  default = "ecs_host_role_prod"
+}
+
+variable "iam_policy_name" {
+  default = "ecs_instance_role_policy"
+}
+
+variable "iam_role_service_name" {
+  default = "ecs_service_role_prod"
+}
+
+variable "service_role_policy_name" {
+  default = "ecs_service_role_policy"
+}
+
+variable "instanceprofile_name" {
+  default = "ecs_instance_profile_prod"
+}
+
+
+
+
